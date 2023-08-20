@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  /* background-image: url("../img/rain_bg.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #303A3B;  
+}
+
+h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Prompt;
+  font-size: 68px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.main-weather-card {
+margin-top: 25px;
+  position: relative;
+  width: 365px;
+  height: 750px;
+  flex-shrink: 0;
+  border: 1px solid rgba(238, 238, 238, 0.1);
+  border-radius: 28px;
+  background: rgba(69, 85, 81, 0.3);
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8.5px);
+}
+
+#weatherSearchForm {
+  margin-top: 30px; 
+  text-align: center;
+}
+
+#cityInput {
+  border-radius: 10px;
+  border: 1px solid rgba(238, 238, 238, 0.35);
+  background: rgba(217, 217, 217, 0);
+  padding: 10px 10px 10px 50px;
+  width: 100%; 
+  outline: none;
+
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#cityInput::placeholder {
+  color: rgba(
+    238,
+    238,
+    238,
+    0.6
+  ); 
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  display: inline-block; 
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%); /* vertically center */
+  z-index: 1;
+  fill: none; 
+}
+
+/* Cloud Icon */
+#cloudIcon {
+  display: block;
+  margin: 40px auto 16px; 
+  /* width: 120px; */
+  /* height: auto; */
+}
+
+/* City Name */
+.city-name {
+  margin-top: 20px; 
+  text-align: center;
+}
+
+.city-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.p-city-name {
+  font-size: 24px;
+  margin-left: 10px; 
+  margin-right: 40px;
+}
+
+/* Temperature */
+.temp {
+  margin: 20px auto;
+}
+
+/* Date and Time */
+.p-date-time {
+  font-size: 22px;
+}
+
+.gradient-line {
+  margin: 20px auto;
+  width: 253px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(238, 238, 238, 0.35) 0%, rgba(238, 238, 238, 0.07) 100%);}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SkySight</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Prompt:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+  </head>
+
+  <body>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-4">
+          <div class="main-weather-card">
+            <div class="row">
+              <div class="col-12">
+                <form id="weatherSearchForm" method="GET" action="/weather">
+                  <div class="search-container">
+                    <svg
+                      class="search-icon"
+                      width="30"
+                      height="30"
+                      viewBox="0 0 37 38"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M32.375 33.25L25.6796 26.3736M25.6796 26.3736C26.8248 25.1973 27.7333 23.8009 28.3532 22.2641C28.973 20.7273 29.292 19.0801 29.292 17.4167C29.292 15.7532 28.973 14.106 28.3532 12.5692C27.7333 11.0324 26.8248 9.63598 25.6796 8.45974C24.5343 7.2835 23.1746 6.35046 21.6782 5.71388C20.1818 5.07731 18.578 4.74966 16.9583 4.74966C15.3387 4.74966 13.7348 5.07731 12.2385 5.71388C10.7421 6.35046 9.38242 7.2835 8.23714 8.45974C5.92413 10.8353 4.62469 14.0572 4.62469 17.4167C4.62469 20.7762 5.92413 23.9981 8.23714 26.3736C10.5501 28.7491 13.6873 30.0837 16.9583 30.0837C20.2294 30.0837 23.3665 28.7491 25.6796 26.3736Z"
+                        stroke="#EEEEEE"
+                        stroke-opacity="0.35"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <input
+                      type="text"
+                      id="cityInput"
+                      name="city"
+                      placeholder="Search City"
+                    />
+                  </div>
+                </form>
+              </div>
+
+              <div
+                class="col-12 d-flex flex-column align-items-center justify-content-center"
+              >
+                <img
+                  src="https://openweathermap.org/img/wn/<%= iconName %>@4x.png"
+                  id="cloudIcon"
+                  alt="rainy-icon"
+                />
+
+                <!-- Container for SVG and City Name -->
+                <div
+                  class="city-container d-flex justify-content-center align-items-center"
+                >
+                  <!-- Weather Icon -->
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 31 31"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.5 18.0833C18.3494 18.0833 20.6666 15.7661 20.6666 12.9167C20.6666 10.0673 18.3494 7.75 15.5 7.75C12.6506 7.75 10.3333 10.0673 10.3333 12.9167C10.3333 15.7661 12.6506 18.0833 15.5 18.0833ZM15.5 10.3333C16.9247 10.3333 18.0833 11.492 18.0833 12.9167C18.0833 14.3414 16.9247 15.5 15.5 15.5C14.0753 15.5 12.9166 14.3414 12.9166 12.9167C12.9166 11.492 14.0753 10.3333 15.5 10.3333Z"
+                      fill="white"
+                      fill-opacity="0.8"
+                    />
+                    <path
+                      d="M14.7508 28.1764C14.9695 28.3325 15.2314 28.4165 15.5 28.4165C15.7686 28.4165 16.0306 28.3325 16.2492 28.1764C16.6418 27.8987 25.8708 21.235 25.8333 12.9167C25.8333 7.21913 21.1976 2.58334 15.5 2.58334C9.80247 2.58334 5.16668 7.21913 5.16668 12.9102C5.12922 21.235 14.3582 27.8987 14.7508 28.1764ZM15.5 5.16667C19.7741 5.16667 23.25 8.64254 23.25 12.9231C23.2771 18.6555 17.5822 23.8028 15.5 25.491C13.4191 23.8015 7.72289 18.653 7.75001 12.9167C7.75001 8.64254 11.2259 5.16667 15.5 5.16667Z"
+                      fill="white"
+                      fill-opacity="0.8"
+                    />
+                  </svg>
+
+                  <!-- City Name -->
+                  <p class="p-city-name mb-0 ml-2"><%= locationName %></p>
+                </div>
+              </div>
+
+              <div
+                class="col-12 d-flex flex-column align-items-center justify-content-center temp"
+              >
+                <h1><%= temperature %>°C</h1>
+              </div>
+
+              <div
+                class="col-12 d-flex flex-column align-items-center justify-content-center date-time"
+              >
+                <p class="p-date-time"><%= time %></p>
+                <div class="gradient-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- For later improvement.  -->
+        <div class="col-8"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
